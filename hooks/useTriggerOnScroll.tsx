@@ -14,7 +14,7 @@ function getOffset(el) {
 function hasScrolledTo(el) {
   if (!el) return false;
   const top = getOffset(el).top;
-  const offset = window.innerHeight / 2;
+  const offset = window.innerHeight - 200;
   return top - offset <= window.pageYOffset;
 }
 
