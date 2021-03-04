@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useTriggerOnScroll(images = document.images) {
+export default function useTriggerOnScroll() {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -8,7 +8,7 @@ export default function useTriggerOnScroll(images = document.images) {
       try {
         await new Promise((r) => setTimeout(r, 5000));
         await Promise.all(
-          Array.from(images).map((img) => {
+          Array.from(document.images).map((img) => {
             if (img.complete)
               if (img.naturalHeight !== 0) return Promise.resolve();
               else return Promise.reject(img);
