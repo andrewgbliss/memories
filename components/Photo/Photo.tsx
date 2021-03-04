@@ -33,6 +33,7 @@ export default function Photo(props: Props) {
         objectFit="cover"
         objectPosition={objectPosition}
         className="rounded-xl"
+        priority={true}
       />
       <div className="text-center">{caption}</div>
     </div>
