@@ -9,13 +9,13 @@ interface Props {
 
 export default function ScrollFadeIn(props: Props) {
   const { className = '', children } = props;
-  const el = useRef();
+  const ref = useRef();
   const [show, setShow] = useState<boolean>(false);
-  useTriggerOnScroll(el, (triggered) => {
+  useTriggerOnScroll(ref, (triggered) => {
     setShow(triggered);
   });
   return (
-    <div className={className} ref={el}>
+    <div className={className} ref={ref}>
       <FadeIn show={show}>{children}</FadeIn>
     </div>
   );
