@@ -21,27 +21,37 @@ export default function SteppingDots(props: Props) {
         <div>
           <BigDot />
           <div
-            className={`transform ${dir === 'left' ? '-' : ''}translate-x-14`}
+            className={`transform ${
+              dir === 'left' ? '-translate-x-14' : 'translate-x-14'
+            }`}
           >
             <SmallDot />
           </div>
           <div
-            className={`transform ${dir === 'left' ? '-' : ''}translate-x-24`}
+            className={`transform ${
+              dir === 'left' ? '-translate-x-24' : 'translate-x-24'
+            }`}
           >
             <SmallDot />
           </div>
           <div
-            className={`transform ${dir === 'left' ? '-' : ''}translate-x-28`}
+            className={`transform ${
+              dir === 'left' ? '-translate-x-28' : 'translate-x-28'
+            }`}
           >
             <MediumDot />
           </div>
           <div
-            className={`transform ${dir === 'left' ? '-' : ''}translate-x-24`}
+            className={`transform ${
+              dir === 'left' ? '-translate-x-24' : 'translate-x-24'
+            }`}
           >
             <SmallDot />
           </div>
           <div
-            className={`transform ${dir === 'left' ? '-' : ''}translate-x-14`}
+            className={`transform ${
+              dir === 'left' ? '-translate-x-14' : 'translate-x-14'
+            }`}
           >
             <SmallDot />
           </div>
