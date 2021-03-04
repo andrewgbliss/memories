@@ -4,20 +4,27 @@ export default function useTriggerOnScroll(images = document.images) {
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    let len = images.length;
-    let counter = 0;
-
-    function incrementCounter() {
-      counter++;
-      if (counter === len) {
+    async function waitUntilLoaded() {
+      try {
+        await new Promise((r) => setTimeout(r, 5000));
+        await Promise.all(
+          Array.from(images).map((img) => {
+            if (img.complete)
+              if (img.naturalHeight !== 0) return Promise.resolve();
+              else return Promise.reject(img);
+            return new Promise((resolve, reject) => {
+              img.addEventListener('load', resolve);
+              img.addEventListener('error', () => reject(img));
+            });
+          })
+        );
+      } catch (e) {
+        console.error(e);
+      } finally {
         setLoaded(true);
       }
     }
-
-    [].forEach.call(images, function (img) {
-      if (img.complete) incrementCounter();
-      else img.addEventListener('load', incrementCounter, false);
-    });
+    waitUntilLoaded();
   }, []);
 
   return loaded;
